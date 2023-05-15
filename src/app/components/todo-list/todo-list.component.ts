@@ -7,10 +7,17 @@ import { Todo } from 'src/app/models/todo';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  @Input() todoArray:Todo[]=[];
+  //@Input() todoArray:Todo[]=[];
+
+  _todoArray: Todo[]=[];
+
+  @Input() set todoArray(value:Todo[]){
+    this._todoArray =  value;
+    this._todoArray.sort((todo1,todo2)=> todo2.priority -todo1.priority)
+  }
 
   deleteTodo(todoToDelete:Todo){
     console.log('devo cancellare il todo', todoToDelete.title);
-    this.todoArray = this.todoArray.filter(t => t.title !== todoToDelete.title)
+    this._todoArray = this._todoArray.filter(t => t.title !== todoToDelete.title)
   }
 }

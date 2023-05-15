@@ -18,6 +18,11 @@ export class AppComponent {
     {
       title: 'compra il pane',
       priority: 1
+    },
+    {
+      title: 'pagare le bollette',
+      description: 'care le puttane',
+      priority: 2
     }
   ]
 
